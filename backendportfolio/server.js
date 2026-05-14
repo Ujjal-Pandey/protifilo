@@ -31,11 +31,12 @@ app.post("/api/contact", async (req, res) => {
 
   try {
     const mailOptions = {
-      from: email,
-      to: process.env.EMAIL_USER, // Send it to yourself
-      subject: `Portfolio Message from ${name}: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-    };
+  from: process.env.EMAIL_USER,
+  replyTo: email,
+  to: process.env.EMAIL_USER,
+  subject: `Portfolio Message from ${name}: ${subject}`,
+  text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+};
 
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully!");
