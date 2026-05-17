@@ -15,4 +15,5 @@ services:
       - key: EMAIL_PASS
         sync: false
       - key: FRONTEND_URL
+        value: https://ujjalpandey.com.np
         sync: false
